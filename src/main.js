@@ -1,5 +1,3 @@
-import './js/components/header.js';
-import { initSuccessModal } from './js/components/success-modal.js';
 import {
   getPortfolioCategories,
   handlePortfolioCategoryClick,
@@ -10,22 +8,33 @@ import {
   scrollFunction,
   initFeedbacksSwiper,
   handleFormSubmit,
+  updateHeaderOnScroll,
+  openMenu,
+  closeMenu,
 } from './js/handlers.js';
 import { refs } from './js/refs.js';
 
-initSuccessModal();
 initAccordion();
 initFeedbacksSwiper();
 getPortfolioCategories();
 initGallery();
+
+window.addEventListener('scroll', updateHeaderOnScroll);
+window.onscroll = function () {
+  scrollFunction();
+};
+
+refs.menuButton.addEventListener('click', openMenu);
+refs.closeButton.addEventListener('click', closeMenu);
+refs.mobileLinks.forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
+
 refs.portfolioCategoryList.addEventListener(
   'click',
   handlePortfolioCategoryClick
 );
 refs.portfolioShowMoreBtn.addEventListener('click', handleShowMoreClick);
 
-window.onscroll = function () {
-  scrollFunction();
-};
 refs.scrollUpBtn.addEventListener('click', scrollUp);
 refs.contactsForm.addEventListener('submit', handleFormSubmit);
