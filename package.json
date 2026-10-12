@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/wedding-photographer-kava-java-team-3/",
+    "build": "vite build --base=/js_130_ArtemIshchenkO-hub/",
     "preview": "vite preview"
   },
   "devDependencies": {
